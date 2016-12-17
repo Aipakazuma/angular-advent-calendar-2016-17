@@ -1,0 +1,13 @@
+<p>
+  first-form works!
+</p>
+<h2>ふぉーむです。</h2>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <div class="form-group">
+    <label>お名前は？</label>
+    <input type="text" placeholder="名前を入力してください" name="yourName" ngModel>
+  </div>
+  <div class="form-group">
+    <button type="submit">送信</button>
+  </div>
+</form>

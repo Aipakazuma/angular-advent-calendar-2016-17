@@ -1,0 +1,35 @@
+<h2>動的フォーム</h2>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+  <div class="form-group">
+    <label>お名前は？</label>
+    <input type="text" [formControl]="myForm.controls['yourName']">
+  </div>
+  <div formArrayName="whatAnimationDoYouLike">
+    <div *ngFor="let testDatetime of myForm.controls.whatAnimationDoYouLike.controls; let i=index">
+      <div [formGroupName]="i">
+        <div class="delete-button">
+          <span>Address {{i + 1}}</span>
+          <button type="button" *ngIf="myForm.controls.whatAnimationDoYouLike.controls.length > 1" (click)="removeGroup(i)">フォームから削除</button>
+        </div>
+        <div class="form-group">
+          <label>アニメの名前は？（必須）</label>
+          <input type="text"
+            [formControl]="myForm.controls['whatAnimationDoYouLike'].controls[i].controls['answer']">
+        </div>
+        <div class="form-group">
+          <label>好きな理由は？（任意）</label>
+          <input type="text"
+            [formControl]="myForm.controls['whatAnimationDoYouLike'].controls[i].controls['reason']">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="margin-20">
+    <button type="button" (click)="addGroup()">フォームを追加</button>
+  </div>
+  <pre>{{myForm.value | json}}</pre>
+  <div class="form-group">
+    <button type="submit">送信</button>
+  </div>
+</form>

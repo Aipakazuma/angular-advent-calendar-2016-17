@@ -1,0 +1,24 @@
+<h2>ふぉーむびるだーずふぁいたーずです。</h2>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+  <div class="form-group" [class.error]="!myForm.controls['myName'].alid && myForm.controls['myName'].touched">
+    <label>お名前は？</label>
+    <input type="text" placeholder="名前を入力してください" [formControl]="myForm.controls['myName']">
+    <div *ngIf="!myForm.controls['myName'].valid">myName is invalid</div>
+    <div *ngIf="myForm.controls['myName'].hasError('required')">myName is required</div>
+    <div *ngIf="myForm.controls['myName'].hasError('minlength')">myName must be at least 4 characters long.</div>
+    <div *ngIf="myForm.controls['myName'].hasError('invalidAipa')">myName is string "Aipa"</div>
+  </div>
+  <div class="form-group">
+    <label>日付テスト</label>
+    <input type="text"
+      placeholder="日付を入力してください"
+      readonly="readonly"
+      [formControl]="myForm.controls['inputDatePicker']"
+      [appDatePicker]="myForm.controls['inputDatePicker']">
+  </div>
+  <div class="form-group" *ngIf="!myForm.valid">Form is invalid</div>
+  <div class="form-group">
+    <button type="submit">送信</button>
+  </div>
+  <pre>{{myForm.controls['myName'].errors | json}}</pre>
+</form>
