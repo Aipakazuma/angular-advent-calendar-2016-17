@@ -7,16 +7,16 @@ import { FirstFormComponent } from './first-form/first-form.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UseFormBuilderComponent } from './use-form-builder/use-form-builder.component';
-import { DatePickerDirective } from './date-picker.directive';
-import { DynamicFormComponent } from './dynamic-form/dynamic-form.component'; // <- add
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+import { DatePickerComponent } from './date-picker/date-picker.component'; // <- add
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstFormComponent,
     UseFormBuilderComponent,
-    DatePickerDirective,
-    DynamicFormComponent
+    DynamicFormComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,

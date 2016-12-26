@@ -18,12 +18,9 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.css",
-        "../node_modules/pikaday/scss/pikaday.scss"
+        "styles.css"
       ],
       "scripts": [
-        "../node_modules/pikaday/pikaday.js",
-        "../node_modules/moment/moment.js"
       ],
       "environments": {
         "source": "environments/environment.ts",

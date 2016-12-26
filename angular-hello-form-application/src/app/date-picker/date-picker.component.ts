@@ -1,12 +1,16 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 
 // 宣言？
-declare let Pikaday: any;
+const Pikaday = require('../../../node_modules/pikaday/pikaday');
+const PikadayStyle = require('../../../node_modules/pikaday/scss/pikaday.scss');
 
-@Directive({
-  selector: '[appDatePicker]'
+@Component({
+  selector: '[appDatePicker]',
+  template: '',
+  styleUrls: [PikadayStyle],
+  encapsulation: ViewEncapsulation.None
 })
-export class DatePickerDirective {
+export class DatePickerComponent {
 
   @Input('appDatePicker') datePickerField: any;
 
